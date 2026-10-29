@@ -1,0 +1,45 @@
+{
+  "name": "skill-tracker-desktop",
+  "version": "1.0.0",
+  "description": "Desktop version of Skill Tracker",
+  "author": "Joshua Kim",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "sync": "node sync-app.js",
+    "start": "npm run sync && electron .",
+    "dist": "npm run sync && electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "io.github.joshuakim9022.skilltracker",
+    "productName": "Skill Tracker",
+    "files": [
+      "main.js",
+      "app/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Utility"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "joshuakim9022",
+      "repo": "joshuakim9022.github.io"
+    }
+  },
+  "repository": "github:joshuakim9022/joshuakim9022.github.io"
+}
